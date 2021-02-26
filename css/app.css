@@ -1,0 +1,138 @@
+:root {
+  --black: #000000;
+  --darkGray: #1e1e1e;
+  --gray: #1e1e1e;
+  --white: #efefef;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--darkGray);
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.editor {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.editor__markdown,
+.editor__preview {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 2.75rem 2rem 2rem 2rem;
+  color: var(--white);
+}
+
+.editor__markdown {
+  background-color: var(--black);
+  z-index: 5;
+}
+
+.editor__preview {
+  color: var(--white);
+  left: 100vw;
+  background-color: var(--darkGray);
+  z-index: 10;
+  transition: transform 300ms ease-in-out;
+}
+
+.is-previewing > .editor__preview {
+  transform: translateX(-100vw);
+}
+
+.editor > button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgba(28, 206, 250, 0.9);
+  transition: background-color 300ms ease-in-out;
+  cursor: pointer;
+  z-index: 15;
+}
+
+.btn-save {
+  left: 1rem;
+}
+
+.btn-preview {
+  right: 1rem;
+  opacity: 0.75;
+  transition: opacity 300ms ease-in-out;
+}
+
+.is-previewing .btn-preview {
+  opacity: 1;
+}
+
+.editor__markdown {
+  padding-bottom: calc(50px + 3rem);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-family: monospace;
+  outline: none;
+  background-color: #000;
+  resize: none;
+}
+
+.editor::before,
+.editor__preview::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3px 10px;
+  border-radius: 0 0 5px 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+.editor::before {
+  content: "markdown";
+}
+
+.editor__preview::before {
+  content: "preview";
+}
+
+@media screen and (min-width: 1024px) {
+  .editor__markdown,
+  .editor__preview {
+    width: 50%;
+  }
+
+  .editor__preview {
+    left: 50vw;
+    transition: none;
+  }
+
+  .btn-save:hover {
+    background-color: rgba(28, 206, 250, 1);
+  }
+
+  .btn-preview {
+    display: none;
+  }
+
+  .is-previewing > .editor__preview {
+    transform: translateX(0);
+  }
+}

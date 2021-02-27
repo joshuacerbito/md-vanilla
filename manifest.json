@@ -1,0 +1,18 @@
+{
+  "short_name": "MDfy",
+  "name": "MDfy",
+  "icons": [
+    {
+      "src": "/images/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#1e1e1e",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1e1e1e",
+  "description": "MDy Markdown Editor",
+  "prefer_related_applications": false
+}

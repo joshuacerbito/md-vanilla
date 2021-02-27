@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <title>001-B: Markdown + VanillaJS</title>
+    <title>MDfy</title>
 
     <link href="./css/github-styles.css" rel="stylesheet">
     <link href="./css/app.css" rel="stylesheet">

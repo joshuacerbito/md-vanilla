@@ -10,6 +10,9 @@ self.addEventListener("install", function (e) {
         "/css/github-styles.css",
         "/js/marked.min.js",
         "/js/app.js",
+        "/images/icon-512x512.png",
+        "/images/icon-256x256.png",
+        "/images/apple-touch-icon.png",
       ]);
     })
   );

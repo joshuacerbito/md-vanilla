@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
     <title>001-B: Markdown + VanillaJS</title>
 
     <link href="./css/github-styles.css" rel="stylesheet">
     <link href="./css/app.css" rel="stylesheet">
-    
 </head>
 <body>
     <main>

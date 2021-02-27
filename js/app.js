@@ -5,17 +5,6 @@
   const $btnDownload = document.querySelector(".btn-save");
   const $btnPreview = document.querySelector(".btn-preview");
 
-  function debounce(fn, time) {
-    let timeout;
-
-    return function () {
-      const functionCall = () => fn.apply(this, arguments);
-
-      clearTimeout(timeout);
-      timeout = setTimeout(functionCall, time);
-    };
-  }
-
   function saveTextAsFile(title = "filname") {
     const textToWrite = $textarea.value;
     const textFileAsBlob = new Blob([textToWrite], { type: "text/markdown" });
@@ -58,6 +47,10 @@
 
       $preview.innerHTML = marked(e.target.value);
       localStorage.setItem("md-vanilla", e.target.value);
+    });
+
+    window.addEventListener("blur", (e) => {
+      localStorage.setItem("md-vanilla", $textarea.value);
     });
   });
 })();

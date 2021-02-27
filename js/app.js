@@ -5,6 +5,10 @@
   const $btnDownload = document.querySelector(".btn-save");
   const $btnPreview = document.querySelector(".btn-preview");
 
+  const writeToStore = (md = $textarea.value) => {
+    localStorage.setItem("md-vanilla", md);
+  };
+
   function saveTextAsFile(title = "filname") {
     const textToWrite = $textarea.value;
     const textFileAsBlob = new Blob([textToWrite], { type: "text/markdown" });
@@ -37,20 +41,17 @@
 
     $btnPreview.addEventListener("click", (e) => {
       $editor.classList.toggle("is-previewing");
-      $textarea.focus({ preventScroll: true });
+      !$editor.classList.contains("is-previewing") &&
+        $textarea.focus({ preventScroll: true });
     });
 
     $textarea.addEventListener("keyup", (e) => {
-      if (e.keyCode === 13) {
-        $textarea.scrollTop = $textarea.offsetHeight;
-      }
-
       $preview.innerHTML = marked(e.target.value);
-      localStorage.setItem("md-vanilla", e.target.value);
+      writeToStore(e.target.value);
     });
 
     window.addEventListener("blur", (e) => {
-      localStorage.setItem("md-vanilla", $textarea.value);
+      writeToStore();
     });
   });
 })();

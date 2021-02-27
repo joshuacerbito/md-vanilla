@@ -28,7 +28,6 @@
     }
 
     downloadLink.click();
-    $textarea.focus({ preventScroll: true });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -41,8 +40,6 @@
 
     $btnPreview.addEventListener("click", (e) => {
       $editor.classList.toggle("is-previewing");
-      !$editor.classList.contains("is-previewing") &&
-        $textarea.focus({ preventScroll: true });
     });
 
     $textarea.addEventListener("keyup", (e) => {
@@ -52,6 +49,15 @@
 
     window.addEventListener("blur", (e) => {
       writeToStore();
+    });
+
+    const viewport = document.querySelector("meta[name=viewport]");
+
+    window.addEventListener("resize", () => {
+      viewport.setAttribute(
+        "content",
+        `height=${window.innerHeight}px, width=device-width, initial-scale=1.0`
+      );
     });
   });
 })();
